@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Serendipity🍿</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<!-- 모달 창 -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>알고리즘 B조</h2>
+      <p>About us..</p>
+      <p>202135784 송민의</p>
+      <p>202239878 이동호</p>
+      <p>202334460 류혁</p>
+      <p>202343712 강민준</p>
+    </div>
+</div>
+<header>
+    <h1>Serendipity 🎬</h1>
+    <p class="subtitle">A movie recommendation system that appeared ✨serendipity✨ only for you!</p>
+    </div>
+    <div class="team-name" onclick="openModal()">알고리즘 B조</div>
+</header>
+<form action="/results" method="post">
+  <div class = "search-bar"> <!-- 검색 바 컨테이너 추가 -->
+    <input type="text" name="movie_title" placeholder="추천 받고싶은 영화를 입력하세요.....">
+    <button type="submit">GO!</button>
+</form>
+<div id="displayArea"></div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>추천 결과</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    {% if error %}
+        <h1>{{ error }} <a href="/">다른 영화 검색하기</a></h1>
+    {% else %}
+        <div class="container">
+            <div class="searched-movie">
+                <h1>"{{ movie_title }}"에 대한 추천 결과</h1>
+                <p class="cluster-number">클러스터 번호: {{ cluster_number }}</p>
+                <img src="https://image.tmdb.org/t/p/w500{{ movie_info['poster_path'] }}" alt="{{ movie_info['title'] }}">
+            </div>
+            <div class="recommended-movies">
+                <h2>🌟Recommendation🌟</h2>
+                <div class="movies-container">
+                    {% for movie in recommendations %}
+                    <div class="movie">
+                        <img src="{{ movie['poster_path'] }}" alt="{{ movie['title'] }} Poster">
+                        <h3>{{ movie['title'] }}</h3>        
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <a href="/">🏠 HOME</a>
+    {% endif %}
+</body>
+</html>
